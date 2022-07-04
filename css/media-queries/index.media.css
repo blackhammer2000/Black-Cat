@@ -1,0 +1,12 @@
+@media screen and(max-width: 960px) {
+  header nav ul {
+    flex-direction: column;
+  }
+
+  .description h1 {
+    font-size: 2em;
+  }
+  .category-body {
+    overflow-x: hidden;
+  }
+}

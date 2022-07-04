@@ -1,0 +1,263 @@
+body {
+  font-family: montserrat "Courier New", Courier, monospace;
+  scroll-behavior: smooth;
+}
+
+.active-header {
+  position: relative;
+  font-weight: 600;
+}
+
+.active-header::after {
+  position: absolute;
+  content: "";
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+}
+
+.arrivals {
+  position: relative;
+  color: black;
+}
+
+.arrivals:after {
+  position: absolute;
+  content: "";
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+}
+
+header li {
+  margin: 0 0.7em;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  font-style: italic;
+}
+
+header {
+  padding: 0;
+}
+
+nav a {
+  color: #000;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.active {
+  background-color: black;
+  color: white;
+}
+
+/* UNIVERSAL STYLES*/
+
+header img {
+  width: 100px;
+  height: 100px;
+}
+header .header1 li {
+  margin: 0 2em;
+}
+
+header,
+.header1 li a:hover {
+  color: orange;
+  text-decoration: none;
+}
+
+header .header1 .ul2 li {
+  margin: 0 2.5em;
+}
+
+header .bdg {
+  position: relative;
+}
+
+header i:hover {
+  transform: scale(1.1);
+  color: orange;
+}
+
+header .bdg::after {
+  position: absolute;
+  content: "3";
+  top: 0;
+  right: -5px;
+  border-radius: 50%;
+  color: white;
+  background-color: rgb(207, 28, 28);
+  width: 60%;
+  height: 60%;
+  display: grid;
+  place-items: center;
+  font-size: 0.5em;
+  padding: 0.1em;
+}
+
+header .header2 ul li a {
+  font-size: 1.5em;
+}
+
+.shop nav {
+  width: 60%;
+}
+
+.sub-sections li {
+  width: 25%;
+  list-style: none;
+}
+
+.categories button:hover i {
+  color: white;
+}
+
+.categories .icons i:hover {
+  color: orange;
+}
+
+.categories-header h2 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: 900;
+}
+
+.category-body {
+  padding: 2em;
+}
+
+.category-body img {
+  width: 80%;
+}
+
+.product {
+  transition: transform 0.15s ease-in-out;
+  position: relative;
+}
+
+.new-badge {
+  position: absolute;
+  top: -7px;
+  right: -10px;
+  width: auto;
+  height: auto;
+  background-color: rgba(255, 166, 0, 0.726);
+  color: white;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  animation: badgeAnimation 0.3s ease-in-out linear infinite;
+  transition: animation 0.3s;
+  border-radius: 50%;
+}
+/* .product::after {
+  content: "New";
+  position: absolute;
+  background-color: orange;
+  border-radius: 50%;
+  padding: 0.3em;
+  color: white;
+  top: -2px;
+  right: -3px;
+  font-size: 12px;
+  display: grid;
+  place-items: center;
+  animation: badgeAnimation 0.3s ease-in-out linear infinite;
+  transition: animation 0.3s;
+} */
+
+@keyframes badgeAnimation {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.5);
+  }
+}
+
+.product:hover {
+  transform: scale(1.1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.39);
+}
+
+.product i:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.product-description {
+  flex-wrap: wrap;
+}
+
+.product-price {
+  border-radius: 10px;
+}
+
+/* footer styles */
+footer li {
+  font-style: italic;
+}
+
+footer li a {
+  transition: font-weight 0.1s ease-in-out;
+}
+
+footer li a:hover {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+footer img {
+  width: 100px;
+}
+
+.company-summary {
+  width: 33.3%;
+}
+
+.important-details {
+  width: 33.3%;
+}
+
+.utilities {
+  width: 33.3%;
+}
+
+.utilities li a,
+.important-details li a {
+  color: black;
+}
+
+.utilities ul {
+  width: 80%;
+}
+
+.social-links ul {
+  background-color: rgba(0, 0, 0, 0.829);
+  border-radius: 10px;
+}
+
+.social-links i:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 3px 8px rgb(141, 11, 11);
+}

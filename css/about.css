@@ -1,0 +1,52 @@
+footer li a {
+  transition: font-weight 0.1s ease-in-out;
+  padding: 0.4em;
+}
+
+footer li a:hover {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+footer img {
+  width: 100px;
+}
+
+.company-summary {
+  width: 33.3%;
+}
+
+.important-details {
+  width: 33.3%;
+}
+
+.utilities {
+  width: 33.3%;
+}
+
+.utilities li a,
+.important-details li a {
+  color: black;
+}
+
+.utilities ul {
+  width: 80%;
+}
+
+.social-links ul {
+  background-color: rgba(0, 0, 0, 0.829);
+  border-radius: 10px;
+}
+
+.social-links i:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 3px 8px rgb(141, 11, 11);
+}
+
+footer li {
+  font-style: italic;
+}
+
+.about-container > .container {
+  margin-top: 2em;
+}
