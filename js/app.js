@@ -35,6 +35,13 @@ const products = {
       description: "Stuffed and Sauced",
       state: null,
     },
+    {
+      image: "./images/products/images.jpg",
+      price: 1200,
+      name: "Friskies",
+      description: "Stuffed and Sauced",
+      state: null,
+    },
   ],
   wholesale: [
     {
