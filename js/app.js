@@ -120,7 +120,7 @@ function createProductCard(item, index, body) {
   const product = document.createElement("div");
 
   product.style.transform = `translateX(400px) scale(0.2)`;
-  product.style.animation = `slideInRight 0.5s ease-in-out forwards ${
+  product.style.animation = `slideInRight 1s ease-in-out forwards ${
     (index + 2) / 10
   }s`;
   product.style.transition = `animation ${(index + 2) / 10}s ease-in-out`;
