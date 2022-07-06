@@ -90,7 +90,7 @@ window.onload = () => {
     "[data-wholesale-category-body]"
   );
 
-  // console.log(recommendedBody, newRecipeBody);
+  console.table(recommendedBody, newRecipeBody);
 
   renderProducts(products.retail, recommendedBody);
   renderProducts(products.wholesale, newRecipeBody);
