@@ -79,8 +79,8 @@ window.onload = () => {
   const beefSectionBody = document.querySelectorAll(
     "[data-beef-category-body]"
   );
-  beefSectionBody.forEach((div) => {
-    renderProducts(products.retail, div);
+  beefSectionBody.forEach((section) => {
+    renderProducts(products.retail, section);
   });
 };
 
