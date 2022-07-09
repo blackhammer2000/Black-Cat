@@ -82,27 +82,23 @@ const products = {
   ],
 };
 
-window.onload = () => {
-  const recommendedBody = document.querySelector(
-    "[data-best-seller-category-body]"
-  );
-  const newRecipeBody = document.querySelector(
-    "[data-wholesale-category-body]"
-  );
+const recommendedBody = document.querySelector(
+  "[data-best-seller-category-body]"
+);
+const newRecipeBody = document.querySelector("[data-wholesale-category-body]");
 
-  console.table(recommendedBody, newRecipeBody);
+console.table(recommendedBody, newRecipeBody);
 
-  renderProducts(products.retail, recommendedBody);
-  renderProducts(products.wholesale, newRecipeBody);
+renderProducts(products.retail, recommendedBody);
+renderProducts(products.wholesale, newRecipeBody);
 
-  const searchIcon = document.querySelector("[data-search-icon]");
-  const searchBar = document.querySelector("[data-search-bar]");
+const searchIcon = document.querySelector("[data-search-icon]");
+const searchBar = document.querySelector("[data-search-bar]");
 
-  searchIcon.addEventListener("click", (e) => {
-    e.preventDefault();
-    searchBar.classList.toggle("show");
-  });
-};
+searchIcon.addEventListener("click", (e) => {
+  e.preventDefault();
+  searchBar.classList.toggle("show");
+});
 
 function renderProducts(products, body) {
   const fragment = document.createDocumentFragment();
