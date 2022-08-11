@@ -87,8 +87,8 @@ const recommendedBody = document.querySelector(
 );
 const newRecipeBody = document.querySelector("[data-wholesale-category-body]");
 
-console.table(recommendedBody, newRecipeBody);
-
+// console.table(recommendedBody, newRecipeBody);
+renderCartBadgeNumber();
 renderProducts(products.retail, recommendedBody);
 renderProducts(products.wholesale, newRecipeBody);
 
@@ -99,6 +99,42 @@ searchIcon.addEventListener("click", (e) => {
   e.preventDefault();
   searchBar.classList.toggle("show");
 });
+
+const addToCartButtons = document.querySelectorAll(".add-to-cart");
+addToCartButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    const product_name =
+      e.target.parentElement.parentElement.parentElement.children[1].innerText;
+    const product_quantity = parseInt(
+      window
+        .getComputedStyle(button, "::after")
+        .getPropertyValue("content")
+        .replace(/\W/g, "")
+    );
+    const product_price = parseInt(
+      e.target.parentElement.parentElement.previousElementSibling.children[2].children[0].innerText
+        .replace(/[a-z. \,]/gi, "")
+        .trim()
+    );
+    const product_image =
+      e.target.parentElement.parentElement.previousElementSibling.children[0]
+        .children[0].src;
+
+    const cart = JSON.parse(localStorage.getItem("blackcat-cart")) || [];
+    const cartItem = {
+      product_name,
+      product_price,
+      product_quantity,
+      product_image,
+    };
+
+    cart.push(cartItem);
+    localStorage.setItem("blackcat-cart", JSON.stringify(cart));
+    renderCartBadgeNumber();
+  });
+});
+console.log(addToCartButtons);
 
 function renderProducts(products, body) {
   const fragment = document.createDocumentFragment();
@@ -162,7 +198,7 @@ function createProductCard(item, index, body) {
   productButtons.className =
     "product-buy-button mt-4 d-flex justify-content-between w-100 align-items-center h-auto border-top pt-4";
   const button = document.createElement("button");
-  button.className = "btn btn-warning w-50";
+  button.className = "btn btn-warning w-25 add-to-cart";
   const cartIcon = document.createElement("i");
   cartIcon.className = "fa fa-shopping-cart";
   button.append(cartIcon);
@@ -170,12 +206,15 @@ function createProductCard(item, index, body) {
 
   const icons = document.createElement("div");
   icons.className =
-    "icons d-flex justify-content-between align-items-around  w-50 ml-4 p-3";
+    "icons d-flex justify-content-between align-items-around  w-75 ml-4 p-3 ";
   const favIcon = document.createElement("i");
   favIcon.className = "fa fa-heart";
   const plusIcon = document.createElement("i");
   plusIcon.className = "fa fa-plus";
+  const minusIcon = document.createElement("i");
+  minusIcon.className = "fa fa-minus mx-4";
   icons.append(plusIcon);
+  icons.append(minusIcon);
   icons.append(favIcon);
   productButtons.append(icons);
   product.append(productButtons);
@@ -187,4 +226,16 @@ function createProductCard(item, index, body) {
   product.classList.contains("new") ? product.append(newBadge) : null;
 
   return product;
+}
+
+function renderCartBadgeNumber() {
+  const cart = document.querySelector("[data-cart]");
+  const cartBadge = cart.querySelector("[data-badge]");
+  const itemsInCart = JSON.parse(localStorage.getItem("blackcat-cart"))
+    ? JSON.parse(localStorage.getItem("blackcat-cart")).length
+    : 0;
+  cartBadge.innerText = itemsInCart ? itemsInCart : "";
+  parseInt(cartBadge.innerText) > 0
+    ? (cartBadge.style.display = "grid")
+    : (cartBadge.style.display = "none");
 }
