@@ -411,26 +411,28 @@ footer li {
   opacity: 1;
 }
 
-.product button {
+.product .add-to-cart {
   position: relative;
+  cursor: pointer;
 }
 
 .product button i {
   pointer-events: none;
-  cursor: pointer;
 }
 
-.product button::after {
+.product .add-to-cart-after {
   position: absolute;
-  content: "3";
+  content: "";
   display: grid;
+  padding: 2em;
   place-items: center;
   top: -20%;
   right: -20%;
-  width: 50%;
-  height: 50%;
+  width: 15px;
+  height: 15px;
   background-color: black;
   color: orange;
   font-size: 0.5em;
   border-radius: 50%;
+  cursor: pointer;
 }

@@ -100,6 +100,11 @@ searchIcon.addEventListener("click", (e) => {
   searchBar.classList.toggle("show");
 });
 
+const increaseQuantityButtons = document.querySelectorAll("[data-add-items]");
+increaseQuantityButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {});
+});
+
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
 addToCartButtons.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -193,15 +198,18 @@ function createProductCard(item, index, body) {
   productPrice.append(priceTag);
   product.append(productPrice);
 
-  // create the product buttons div and append it to the product card
+  // create the product buttons and badge div and append it to the product card
   const productButtons = document.createElement("div");
   productButtons.className =
     "product-buy-button mt-4 d-flex justify-content-between w-100 align-items-center h-auto border-top pt-4";
   const button = document.createElement("button");
   button.className = "btn btn-warning w-25 add-to-cart";
+  const cartCounter = document.createElement("div");
+  cartCounter.className = ".add-to-cart-after";
   const cartIcon = document.createElement("i");
   cartIcon.className = "fa fa-shopping-cart";
   button.append(cartIcon);
+  button.append(cartCounter);
   productButtons.append(button);
 
   const icons = document.createElement("div");
