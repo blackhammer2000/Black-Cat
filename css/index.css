@@ -421,13 +421,13 @@ footer li {
 }
 
 .product .add-to-cart-after {
-  position: absolute;
   content: "";
+  position: absolute;
   display: grid;
   padding: 2em;
   place-items: center;
   top: -20%;
-  right: -20%;
+  right: -90%;
   width: 15px;
   height: 15px;
   background-color: black;

@@ -127,6 +127,7 @@ addToCartButtons.forEach((button) => {
         .children[0].src;
 
     const cart = JSON.parse(localStorage.getItem("blackcat-cart")) || [];
+
     const cartItem = {
       product_name,
       product_price,
@@ -202,15 +203,19 @@ function createProductCard(item, index, body) {
   const productButtons = document.createElement("div");
   productButtons.className =
     "product-buy-button mt-4 d-flex justify-content-between w-100 align-items-center h-auto border-top pt-4";
+
+  const cartButtonContainer = document.createElement("div");
+  cartButtonContainer.className = "add-to-cart border border-danger w-100";
   const button = document.createElement("button");
-  button.className = "btn btn-warning w-25 add-to-cart";
+  button.className = "btn btn-warning w-100 ";
   const cartCounter = document.createElement("div");
-  cartCounter.className = ".add-to-cart-after";
+  cartCounter.className = ".add-to-cart-after border border-danger";
   const cartIcon = document.createElement("i");
   cartIcon.className = "fa fa-shopping-cart";
   button.append(cartIcon);
-  button.append(cartCounter);
-  productButtons.append(button);
+  cartButtonContainer.append(cartCounter);
+  cartButtonContainer.append(button);
+  productButtons.append(cartButtonContainer);
 
   const icons = document.createElement("div");
   icons.className =
