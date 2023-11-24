@@ -205,8 +205,7 @@ function createProductCard(item, index, body) {
     "product-buy-button mt-4 d-flex justify-content-between w-100 align-items-center h-auto border-top pt-4";
 
   const cartButtonContainer = document.createElement("div");
-  cartButtonContainer.className =
-    "add-to-cart border border-danger container-fluid";
+  cartButtonContainer.className = "add-to-cart border border-danger w-100";
   const button = document.createElement("button");
   button.className = "btn btn-warning w-100 ";
   const cartCounter = document.createElement("div");
