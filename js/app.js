@@ -205,7 +205,8 @@ function createProductCard(item, index, body) {
     "product-buy-button mt-4 d-flex justify-content-between w-100 align-items-center h-auto border-top pt-4";
 
   const cartButtonContainer = document.createElement("div");
-  cartButtonContainer.className = "add-to-cart border border-danger w-100";
+  cartButtonContainer.className =
+    "add-to-cart border border-danger container-fluid";
   const button = document.createElement("button");
   button.className = "btn btn-warning w-100 ";
   const cartCounter = document.createElement("div");
@@ -222,10 +223,18 @@ function createProductCard(item, index, body) {
     "icons d-flex justify-content-between align-items-around  w-75 ml-4 p-3 ";
   const favIcon = document.createElement("i");
   favIcon.className = "fa fa-heart";
+
   const plusIcon = document.createElement("i");
   plusIcon.className = "fa fa-plus";
+  plusIcon.addEventListener("click", (e) =>
+    updateTheItemCounterInTheBuyButton("plus", e)
+  );
+
   const minusIcon = document.createElement("i");
   minusIcon.className = "fa fa-minus mx-4";
+  minusIcon.addEventListener("click", (e) =>
+    updateTheItemCounterInTheBuyButton("minus", e)
+  );
   icons.append(plusIcon);
   icons.append(minusIcon);
   icons.append(favIcon);
@@ -239,6 +248,31 @@ function createProductCard(item, index, body) {
   product.classList.contains("new") ? product.append(newBadge) : null;
 
   return product;
+}
+
+function updateTheItemCounterInTheBuyButton(operation, e) {
+  e.preventDefault();
+
+  const buyItemsCounterBadge =
+    e.target.parentElement.previousElementSibling.querySelector(
+      ".add-to-cart-after"
+    );
+  switch (operation) {
+    case "plus":
+      buyItemsCounterBadge.innerText = parseInt(
+        buyItemsCounterBadge.innerText + 1
+      );
+      break;
+
+    case "minus":
+      buyItemsCounterBadge.innerText = parseInt(
+        buyItemsCounterBadge.innerText + 1
+      );
+      break;
+
+    default:
+      break;
+  }
 }
 
 function renderCartBadgeNumber() {
